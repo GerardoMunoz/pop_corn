@@ -6,7 +6,7 @@ from pop_corn.py.context_tkinter import Context_Tkinter as Context
 
 
 class Wall_e(Disc):
-    def __init__(self,scene,i,j,host):
+    def __init__(self,scene,i,j,host,net):
         self.host=host
         self.i,self.j=i,j
         super().__init__(scene)
@@ -22,12 +22,28 @@ class Wall_e(Disc):
             {"points":Matrix(8,2,[7,-2, 20,-2, 20,-5, 30,-5, 30,5, 20,5, 20,2, 7,2]),"options":{"fill":"yellow"}},
                       ]
         host.subscribe(self.get_name()+" All_Wall_es", self, "Command")
+    #def __init__(self, ip, network):
+        self.ip = f"127.0.{i}.{j}:8000"
+        self.net = net
+        net.open(self.ip,"IP_AP")
+        self.inbox = []
+
+#     def send(self, target_ip, message):
+#         print(f"{self.ip} sending to {target_ip}: {message}")
+#         self.network.transmit(self.ip, target_ip, message)
+# 
+#     def receive(self, src_ip, message):
+#         print(f"{self.ip} received from {src_ip}: {message}")
+#         self.inbox.append((src_ip, message))        
         
 #    def send(self,dest,data):
 #        pass
-    
-    def recive(self,dest,data):
-        pass
+
+#     def get_ip(self):
+#         return f"127.0.{i}.{j}:8000"
+#     
+#     def recive(self,dest,data):
+#         pass
         
     
 

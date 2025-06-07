@@ -4,12 +4,16 @@ from pop_corn.disc import Disc
 from pop_corn.pub_sub import PubSub
 from pop_corn.py.context_tkinter import Context_Tkinter as Context
 from wall_e import Wall_e
+from wall_e_net import Dummy_network
 
 
 class Host(PubSub):
-    def __init__(self,zones_num):
+    def __init__(self,zones_num,net):
         super().__init__()
+        self.ip = f"127.0.0.0:8000"
         self.zones_num=zones_num
+        self.net=net
+        net.open(self.ip,"IP_AP")
         #self.pubsub = PubSub()
         pass
      
@@ -33,7 +37,8 @@ if __name__ == "__main__":
     zones_num=(3,4)
     zones_size=(250,250)
     
-    host = Host(zones_num)
+    net = Dummy_network()
+    host = Host(zones_num,net)
     ctx=Context()
     scene = MainScene()#bg='img/UD_@8.xbm', foreground="white", background="black")
     disc0 = Disc(scene)
@@ -42,7 +47,7 @@ if __name__ == "__main__":
     for i in range(zones_num[0]):
         list_tmp=[]
         for j in range(zones_num[1]):
-            disc_tmp=Wall_e(scene,i,j,host)
+            disc_tmp=Wall_e(scene,i,j,host,net)
             name=disc_tmp.get_name()
             #disc_tmp.name=f"Walle_{i}_{j}"
             #disc1.color='blue'
