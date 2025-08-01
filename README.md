@@ -1,6 +1,5 @@
 # PopCorn: A MicroPython Framework for Simulation, Machine Learning, and Visualization
 * https://github.com/GerardoMunoz/pop_corn
-* https://youtube.com/shorts/q8LiIZUanPs?si=thUsrglDgBfzkSmU
 
 ## Overview
 PopCorn is a framework designed to create modules for MicroPython using Object-Oriented Programming. This approach enables the same program to drive different peripherals seamlessly. For example, you can use the same command to draw on an OLED display, in Tkinter, or on an HTML canvas through a MicroPython web server.
@@ -29,5 +28,6 @@ The following files contain applications that can be executed after downloading 
 To collaborate, please fork the repository, create a new branch for your changes, and submit a pull request. Contributions, issues, and feature requests are welcome.
 
 In the [Issues section](https://github.com/GerardoMunoz/pop_corn/issues), you can report bugs, suggest new features, or discuss current and upcoming changes. Your feedback and participation are highly valued!
+
 
 
